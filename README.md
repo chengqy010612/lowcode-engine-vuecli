@@ -1,4 +1,4 @@
-# lowcode-engine-vue-cli4-ts
+# lowcode-engine-vue-cli
 
 ## Project setup
 ```
@@ -10,10 +10,11 @@ pnpm install
 pnpm run serve
 ```
 
-### Compiles and minifies for production
-```
-pnpm run build
-```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+
+![预览图标](https://github.com/2033619233/lowcode-engine-vuecli/blob/master/src/assets/preview.png)
+
+
+
+
+
