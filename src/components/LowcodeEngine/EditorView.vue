@@ -1,6 +1,11 @@
 <template>
-  <div>
-    <div id="lce-container2" style="width: 84vw; height: 87vh"></div>
+  <div style="width: 100%; height: 100%">
+    <div id="lce-container2" style="width: 100%; height: 100%"></div>
+    <Suspense>
+      <template v-if="dialogVisible">
+        <Preview></Preview>
+      </template>
+    </Suspense>
   </div>
 </template>
 
@@ -18,6 +23,7 @@ import {
   toRaw,
   defineExpose,
   onMounted,
+  suspense,
 } from "vue"
 // import { applyPureReactInVue } from "veaury"
 import ReactDOM from "react-dom"
@@ -42,12 +48,19 @@ import InitPlugin from "./plugins/init"
 import SetterPlugin from "./plugins/setter"
 import Actions from "./plugins/actions"
 import "./editor.less"
+import { eventBus } from "./utils"
+import Preview from "./vue/preview.vue"
 
 const emit = defineEmits([""])
 const props = defineProps({})
 const state = reactive({})
 const {} = toRefs(state)
+localStorage.setItem("designMode", "design")
 
+const dialogVisible = ref(false)
+eventBus.on("preview", () => {
+  dialogVisible.value = true
+})
 // function EditorView() {
 //   let a = '12434dsaf'
 //   return <div>react{a}</div>
@@ -61,7 +74,6 @@ const {} = toRefs(state)
 //   }
 // }
 // ReactDOM.render(<EditorView2 />, document.getElementById('lce-container2'));
-
 
 async function registerPlugins() {
   // 此处略去若干插件注册

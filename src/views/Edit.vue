@@ -1,9 +1,5 @@
 <template>
-  <div>
-    test
     <EditorView></EditorView>
-    <!-- <div id="lce-container2"></div> -->
-  </div>
 </template>
 
 <script setup>

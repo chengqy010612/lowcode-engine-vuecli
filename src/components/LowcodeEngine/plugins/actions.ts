@@ -2,7 +2,7 @@ import { createElement as h } from 'react';
 import { Button, Message } from '@alifd/next';
 import { saveSchema } from '../utils/store';
 import { IPublicModelPluginContext } from '@alilc/lowcode-types';
-
+import { eventBus } from '../utils';
 const save = async () => {
   await saveSchema();
   Message.success('成功保存到本地');
@@ -11,6 +11,8 @@ const save = async () => {
 const preview = async () => {
   await saveSchema();
   window.open('preview.html');
+  // await localStorage.setItem('designMode', '');
+  // eventBus.emit('preview');
 };
 
 const savePlugin = (ctx: IPublicModelPluginContext) => {

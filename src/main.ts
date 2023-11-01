@@ -3,7 +3,6 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 
-// createApp(App).use(store).use(router).mount('#app1')
 
 
 import Inject from '@alilc/lowcode-plugin-inject';
@@ -18,46 +17,59 @@ import InitPlugin from './components/LowcodeEngine/plugins/init';
 import SetterPlugin from './components/LowcodeEngine/plugins/setter';
 import Actions from './components/LowcodeEngine/plugins/actions';
 import './components/LowcodeEngine/editor.less';
+
+createApp(App).use(store).use(router).mount('#app')
+
+
+// window.AliLowCodeEngine.init(document.getElementById("lce-container2"), {
+//   enableCondition: true,
+//   enableCanvasLock: true,
+// })
+
+
+
+
+
 // // import vue from 'Vue';
 // const vue = require('Vue');
 // console.log(vue.createApp);
 // debugger;
 
-(async () => {
-  const preference = new Map();
+// (async () => {
+//   const preference = new Map();
 
-  preference.set('DataSourcePane', {
-    importPlugins: [],
-    dataSourceTypes: [
-      {
-        type: 'fetch',
-      },
-    ],
-  });
+//   preference.set('DataSourcePane', {
+//     importPlugins: [],
+//     dataSourceTypes: [
+//       {
+//         type: 'fetch',
+//       },
+//     ],
+//   });
 
-  await plugins.register(Inject);
-  await plugins.register(RegistryPlugin);
-  await plugins.register(UndoRedoPlugin);
-  await plugins.register(SchemaPlugin);
-  await plugins.register(DataSource);
-  await plugins.register(SetterPlugin);
-  await plugins.register(InitPlugin);
-  await plugins.register(CodeEditor);
-  await plugins.register(Actions);
+//   await plugins.register(Inject);
+//   await plugins.register(RegistryPlugin);
+//   await plugins.register(UndoRedoPlugin);
+//   await plugins.register(SchemaPlugin);
+//   await plugins.register(DataSource);
+//   await plugins.register(SetterPlugin);
+//   await plugins.register(InitPlugin);
+//   await plugins.register(CodeEditor);
+//   await plugins.register(Actions);
 
-  // const registerSetter = window.AliLowCodeEngine.setters.registerSetter;
-  // registerSetter('AltStringSetter', AltStringSetter);
+//   // const registerSetter = window.AliLowCodeEngine.setters.registerSetter;
+//   // registerSetter('AltStringSetter', AltStringSetter);
 
-  setupHostEnvironment(project, '/js/vue.runtime.global.js');
+//   setupHostEnvironment(project, '/js/vue.runtime.global.js');
 
-  await init(
-    document.getElementById('lce-container')!,
-    {
-      enableCondition: true,
-      enableCanvasLock: true,
-      supportVariableGlobally: true,
-      simulatorUrl: ['/js/vue-simulator-renderer.js', '/js/vue-simulator-renderer.css'],
-    },
-    preference
-  );
-})();
+//   await init(
+//     document.getElementById('lce-container')!,
+//     {
+//       enableCondition: true,
+//       enableCanvasLock: true,
+//       supportVariableGlobally: true,
+//       simulatorUrl: ['/js/vue-simulator-renderer.js', '/js/vue-simulator-renderer.css'],
+//     },
+//     preference
+//   );
+// })();
